@@ -1,0 +1,13 @@
+.App {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaflet-container {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
