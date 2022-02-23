@@ -20,3 +20,10 @@ body {
   height: auto;
   aspect-ratio: 16/9;
 }
+
+.litleButton {
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  color : white;
+}
