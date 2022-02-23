@@ -1,4 +1,5 @@
 import React from 'react';
+import logoGeoloc from '../images/icon_geolocalisation.png';
 
 export class Geolocalisation extends React.Component {
     constructor(props) {
@@ -9,8 +10,8 @@ export class Geolocalisation extends React.Component {
     render() {
         return (
             <div>
-                <a href="#!" className="litleButton" type="button" onClick={this.geolocaliser}>
-                    <img alt="geolocaliser" scr="/images/icon_geolocalisation.png" />
+                <a href="#!" className="litleButton" type="button" onClick={this.geolocaliser.bind(this)}>
+                    <img alt="geolocaliser" src={logoGeoloc} width="30px" height="auto" />
                 </a>
             </div>
         );
@@ -25,10 +26,11 @@ export class Geolocalisation extends React.Component {
 
     geolocaliser(e) {
         e.preventDefault();
+        function whenReceivePosition(position) {
+            this.props.onReceiveUserPosition(position);
+        }
         navigator.geolocation.getCurrentPosition(
-            function (position) {
-                console.log(position);
-            },
+            whenReceivePosition.bind(this),
             function (error) {
                 console.error("Error Code = " + error.code + " - " + error.message);
             }
