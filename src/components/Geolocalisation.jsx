@@ -29,7 +29,7 @@ export class Geolocalisation extends React.Component {
         function whenReceivePosition(position) {
             this.props.onReceiveUserPosition(position);
         }
-        navigator.geolocation.getCurrentPosition(
+        navigator.geolocation.watchPosition(
             whenReceivePosition.bind(this),
             function (error) {
                 console.error("Error Code = " + error.code + " - " + error.message);
