@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, Marker, Popup, TileLayer, Polyline } from "react-leaflet";
+import { MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 
 import { getPistesCyclables } from "../utils/parisOpenData";
@@ -20,10 +20,12 @@ export class AppMap extends React.Component {
         <Marker position={[this.props.lat, this.props.lon]}>
           <Popup>Un pin dynamique</Popup>
         </Marker>
-
-        {pistes.map(piste => (
-          <Polyline pathOptions={this.lineStyle} positions={piste} key={piste} />
-        ))}
+      
+        <LayerGroup>
+          {pistes.map(piste => (
+            <Polyline pathOptions={this.lineStyle} positions={piste} key={piste} />
+          ))}
+        </LayerGroup>
       </MapContainer>
     );
   }
