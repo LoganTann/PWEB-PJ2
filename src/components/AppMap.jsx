@@ -1,7 +1,9 @@
-import React from 'react';
-import { MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup } from "react-leaflet";
+import React, { useState } from 'react';
+import {
+  useMapEvents, MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup, SVGOverlay
+} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
-
+import LocationMarker from "./markers/LocationMarker";
 import { getPistesCyclables } from "../utils/parisOpenData";
 
 /**
@@ -18,14 +20,15 @@ export class AppMap extends React.Component {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         <Marker position={[this.props.lat, this.props.lon]}>
-          <Popup>Un pin dynamique</Popup>
+          <Popup>Votre recherche</Popup>
         </Marker>
-      
+        <LocationMarker />
         <LayerGroup>
           {pistes.map(piste => (
             <Polyline pathOptions={this.lineStyle} positions={piste} key={piste} />
           ))}
         </LayerGroup>
+
       </MapContainer>
     );
   }

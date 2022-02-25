@@ -3,6 +3,7 @@ import React from "react";
 import { AppMap } from "./components/AppMap";
 import { ResearchBar } from "./components/ResearchBar";
 import { Geolocalisation } from "./components/Geolocalisation";
+import ErrorBoundary from "./components/utils/ErrorBoundary";
 
 /**
  * Composant principal de notre application
@@ -40,11 +41,9 @@ export class App extends React.Component {
             <div className="App">
                 <ResearchBar onSearch={this.onSearch.bind(this)} />
                 <AppMap lat={this.state.lat} lon={this.state.lon}></AppMap>
-                <Geolocalisation
-                    onReceiveUserPosition={this.onReceiveUserPosition.bind(
-                        this
-                    )}
-                />
+                <ErrorBoundary>
+                    <Geolocalisation />
+                </ErrorBoundary>
             </div>
         );
     }

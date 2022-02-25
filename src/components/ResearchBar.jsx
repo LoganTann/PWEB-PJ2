@@ -1,4 +1,6 @@
 import React from 'react';
+import '../ResearchBar.css';
+
 
 export class ResearchBar extends React.Component {
     constructor(props) {
@@ -31,19 +33,21 @@ export class ResearchBar extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    <input type="text" placeholder="143 avenue de Versailles 75016 Paris" name="search" />
-                </label>
-                <input type="submit" value="Rechercher" />
-                <ul>
-                    {
-                        this.state.resultatsRecherche?.map((resultat) => (
-                            <li key={resultat.osm_id} onClick={() => this.donnerPosition(resultat.lat, resultat.lon)}><a href='#!'>{resultat.display_name}</a></li>
-                        ))
-                    }
-                </ul>
-            </form>
+            <div className='rech-bar'>
+                <form onSubmit={this.handleSubmit}>
+                    <label className='label-rech-bar'>
+                        <input type="text" className="imput-rech-bar" placeholder="143 avenue de Versailles 75016 Paris" name="search" />
+                    </label>
+                    <input type="submit" className='buttonRech' value="Rechercher" />
+                    <ul>
+                        {
+                            this.state.resultatsRecherche?.map((resultat) => (
+                                <li key={resultat.osm_id} onClick={() => this.donnerPosition(resultat.lat, resultat.lon)}><a href='#!'>{resultat.display_name}</a></li>
+                            ))
+                        }
+                    </ul>
+                </form>
+            </div>
         );
     }
 

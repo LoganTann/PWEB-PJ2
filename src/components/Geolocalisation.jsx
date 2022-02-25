@@ -1,6 +1,5 @@
 import React from 'react';
 import logoGeoloc from '../images/icon_geolocalisation.png';
-
 export class Geolocalisation extends React.Component {
     constructor(props) {
         super(props);
