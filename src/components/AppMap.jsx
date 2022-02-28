@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import {
-  useMapEvents, MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup, SVGOverlay
+  useMapEvents, MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup, GeoJSON
 } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
-import LocationMarker from "./markers/LocationMarker";
+import LocationMarker from "./mapComponents/LocationMarker";
 import { getPistesCyclables } from "../utils/parisOpenData";
-
+import reseauCyclable from "./reseau-cyclable.json";
 /**
  * Composant d'affichage des cartes de notre application
  */
 export class AppMap extends React.Component {
   ligne = { "coordinates": [[48.841907, 2.2654483], [48.85527964436605, 2.352920697661126]], "type": "LineString" };
   lineStyle = { color: 'purple' };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      pistes: null,
+    }
+  }
 
   render() {
     const pistes = getPistesCyclables();
@@ -23,6 +30,7 @@ export class AppMap extends React.Component {
           <Popup>Votre recherche</Popup>
         </Marker>
         <LocationMarker />
+        <GeoJSON data={reseauCyclable} />
         <LayerGroup>
           {pistes.map(piste => (
             <Polyline pathOptions={this.lineStyle} positions={piste} key={piste} />
