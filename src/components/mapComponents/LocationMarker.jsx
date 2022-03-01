@@ -17,6 +17,9 @@ export default function LocationMarker() {
             setPosition(e.latlng)
             map.flyTo(e.latlng, map.getZoom())
         },
+        locationerror(e) {
+            console.error("Erreur de localisation", e);
+        }
     })
     // Subscribes the event LocateBtnClicked to the event emitter only when mounted
     React.useEffect(() => {
@@ -26,7 +29,7 @@ export default function LocationMarker() {
     }, [map]);
     return position === null ? null : (
         <Marker position={position}>
-            <Popup>You are here</Popup>
+            <Popup>Votre position actuelle</Popup>
         </Marker>
     )
 }

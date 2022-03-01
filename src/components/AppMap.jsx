@@ -3,9 +3,10 @@ import {
   useMapEvents, MapContainer, Marker, Popup, TileLayer, Polyline, LayerGroup, GeoJSON
 } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
+
 import LocationMarker from "./mapComponents/LocationMarker";
-import { getPistesCyclables } from "../utils/parisOpenData";
-import reseauCyclable from "./reseau-cyclable.json";
+import PistesCyclables from './mapComponents/PistesCyclables';
+
 /**
  * Composant d'affichage des cartes de notre application
  */
@@ -21,22 +22,16 @@ export class AppMap extends React.Component {
   }
 
   render() {
-    const pistes = getPistesCyclables();
     return (
       <MapContainer center={[this.props.lat, this.props.lon]} zoom={13}>
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         <Marker position={[this.props.lat, this.props.lon]}>
-          <Popup>Votre recherche</Popup>
+          <Popup>Votre recherche (Par défaut : l'IUT de Paris)</Popup>
         </Marker>
-        <LocationMarker />
-        <GeoJSON data={reseauCyclable} />
-        <LayerGroup>
-          {pistes.map(piste => (
-            <Polyline pathOptions={this.lineStyle} positions={piste} key={piste} />
-          ))}
-        </LayerGroup>
 
+        <LocationMarker />
+        <PistesCyclables />
       </MapContainer>
     );
   }
