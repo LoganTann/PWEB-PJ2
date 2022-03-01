@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useMapEvents, LayerGroup, GeoJSON } from "react-leaflet";
+import React, { useState, useEffect } from "react";
+import { useMapEvents, LayerGroup, Polyline } from "react-leaflet";
 import { getPistesCyclables } from "../../utils/parisOpenData";
 
 /**
@@ -7,6 +7,8 @@ import { getPistesCyclables } from "../../utils/parisOpenData";
  * Pour le mettre à jour, utiliser l'event LocateBtnClicked via EventEmitter.
  */
 export default function PistesCyclables() {
+  const [positions, setPositions] = useState(null);
+
   const map = useMapEvents({
     zoomend(e) {
       console.log("Vous avez changé le niveau de zoom", e);
@@ -18,9 +20,23 @@ export default function PistesCyclables() {
       console.log("Vous avez déplacé la carte", e);
     },
   });
-  return (
+
+  useEffect(() => {
+    getPistesCyclables().then((data) => {
+      setPositions(data);
+    });
+    // mettre un tableau vide pour executer une seule fois
+  }, []);
+  
+  const limeOptions = { color: 'blue', weight: 2, opacity: 0.5 };
+
+  return positions === null ? null : (
     <LayerGroup>
-      <GeoJSON data={getPistesCyclables()} />
+      {
+        positions.map((piste) => (
+          <Polyline pathOptions={limeOptions} positions={piste.coordinates} key={piste.id}/>
+        ))
+      }
     </LayerGroup>
   );
 }
