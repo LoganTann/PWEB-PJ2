@@ -1,38 +1,17 @@
 import React from 'react';
 import logoGeoloc from '../images/icon_geolocalisation.png';
+import { EventEmitter, EVENTS } from '../utils/EventEmitter';
+/**
+ * <Geolocalisation> - Affiche un bouton notifiant le LocationMarker de se mettre à jour.
+ */
 export class Geolocalisation extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
             <div>
-                <a href="#!" className="litleButton" type="button" onClick={this.geolocaliser.bind(this)}>
+                <a href="#!" className="litleButton" type="button" onClick={() => EventEmitter.dispatch(EVENTS.LocateBtnClicked)}>
                     <img alt="geolocaliser" src={logoGeoloc} width="30px" height="auto" />
                 </a>
             </div>
-        );
-    }
-
-    // Demander l'acces à la géolocaliation
-    componentDidMount() {
-        if (!("geolocation" in navigator)) {
-            console.error("Géolocalisation non disponible");
-        }
-    }
-
-    geolocaliser(e) {
-        e.preventDefault();
-        function whenReceivePosition(position) {
-            this.props.onReceiveUserPosition(position);
-        }
-        navigator.geolocation.watchPosition(
-            whenReceivePosition.bind(this),
-            function (error) {
-                console.error("Error Code = " + error.code + " - " + error.message);
-            }
         );
     }
 }
