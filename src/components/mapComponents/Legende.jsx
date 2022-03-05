@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import L from "leaflet";
 import { getColor } from "../../utils/parisOpenData";
 
@@ -9,7 +9,7 @@ export default function Legende({ map }) {
             const div = L.DomUtil.create("details", "info legend");
             const labels = [];
             for (let layer in getColor) {
-                if (layer == "of") continue;
+                if (layer === "of") continue;
                 labels.push(
                     `<i style="background: ${getColor[layer]};"></i>${layer}`
                 );

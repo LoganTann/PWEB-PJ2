@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMapEvents, LayerGroup, Polyline } from "react-leaflet";
 import { getPistesCyclables, getColor } from "../../utils/parisOpenData";
 import Legende from "./Legende";
