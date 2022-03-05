@@ -2,7 +2,6 @@ import "./App.css";
 import React from "react";
 import { AppMap } from "./components/AppMap";
 import { ResearchBar } from "./components/ResearchBar";
-import { Geolocalisation } from "./components/Geolocalisation";
 
 /**
  * Composant principal de notre application
@@ -37,9 +36,12 @@ export class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <ResearchBar onSearch={this.onSearch.bind(this)} />
                 <AppMap lat={this.state.lat} lon={this.state.lon}></AppMap>
-                <Geolocalisation />
+                <div style={{ padding: "10px" }}>
+                    <h1>Des Cartes</h1>
+                    <p>Où allons-nous ?</p>
+                    <ResearchBar onSearch={this.onSearch.bind(this)} />
+                </div>
             </div>
         );
     }
