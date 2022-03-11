@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useMapEvents, LayerGroup, Polyline } from "react-leaflet";
 import { getPistesCyclables, getColor } from "../../utils/parisOpenData";
 import Legende from "./Legende";
@@ -23,17 +23,19 @@ export default function PistesCyclables() {
     const map = useMapEvents({
         moveend() {
             onMapChange(map);
-        },
-        load() {
-            onMapChange(map);
-        },
+        }
     });
+    useEffect(() => {
+        if (positions === null) {
+            onMapChange(map);
+        }
+    }, [map, positions]);
 
     function pathStyle(layer) {
         const zoom = map.getZoom();
         return {
             color: getColor.of(layer),
-            weight: zoom > 12 && zoom < 15 ? 2 : 5,
+            weight: zoom > 13 && zoom < 15 ? 2 : 5,
             opacity: 0.5,
         };
     }

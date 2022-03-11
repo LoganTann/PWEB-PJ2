@@ -52,3 +52,7 @@ body {
     border-radius: 5px;
     box-shadow: #999 0 0 2px;
 }
+
+.logo-bar {
+    width: 200px;
+}

@@ -3,20 +3,12 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import PistesCyclables from "./mapComponents/PistesCyclables";
 import Localisation from "./mapComponents/Localisation";
+import Recherche from "./mapComponents/Recherche";
 
 /**
  * Composant d'affichage des cartes de notre application
  */
 export class AppMap extends React.Component {
-    ligne = {
-        coordinates: [
-            [48.841907, 2.2654483],
-            [48.85527964436605, 2.352920697661126],
-        ],
-        type: "LineString",
-    };
-    lineStyle = { color: "purple" };
-
     constructor(props) {
         super(props);
         this.state = {
@@ -26,13 +18,10 @@ export class AppMap extends React.Component {
 
     render() {
         return (
-            <MapContainer center={[this.props.lat, this.props.lon]} zoom={13}>
+            <MapContainer center={[48.8420233, 2.267862]} zoom={13}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-                <Marker position={[this.props.lat, this.props.lon]}>
-                    <Popup>Votre recherche (Par défaut : l'IUT de Paris)</Popup>
-                </Marker>
-
+                
+                <Recherche position={[this.props.lat, this.props.lon]} />
                 <Localisation />
                 <PistesCyclables />
             </MapContainer>
