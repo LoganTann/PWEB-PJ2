@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pweb-pj2/static/css/main.252cc9c6.css",
-    "main.js": "/pweb-pj2/static/js/main.3c9879ab.js",
-    "static/media/logo.svg": "/pweb-pj2/static/media/logo.97f1399c2f0ac8baf9b5b3c8aee36c1a.svg",
-    "index.html": "/pweb-pj2/index.html",
-    "static/media/geoloc.svg": "/pweb-pj2/static/media/geoloc.59f42d518321c43c1d66b0003c65f613.svg",
-    "main.252cc9c6.css.map": "/pweb-pj2/static/css/main.252cc9c6.css.map",
-    "main.3c9879ab.js.map": "/pweb-pj2/static/js/main.3c9879ab.js.map"
+    "main.css": "/PWEB-PJ2/static/css/main.252cc9c6.css",
+    "main.js": "/PWEB-PJ2/static/js/main.1f178227.js",
+    "static/media/logo.svg": "/PWEB-PJ2/static/media/logo.4a4cc0a81afdacdbdc12e51cbb640c92.svg",
+    "index.html": "/PWEB-PJ2/index.html",
+    "static/media/geoloc.svg": "/PWEB-PJ2/static/media/geoloc.59f42d518321c43c1d66b0003c65f613.svg",
+    "main.252cc9c6.css.map": "/PWEB-PJ2/static/css/main.252cc9c6.css.map",
+    "main.1f178227.js.map": "/PWEB-PJ2/static/js/main.1f178227.js.map"
   },
   "entrypoints": [
     "static/css/main.252cc9c6.css",
-    "static/js/main.3c9879ab.js"
+    "static/js/main.1f178227.js"
   ]
 }
