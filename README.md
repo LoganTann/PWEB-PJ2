@@ -5,7 +5,7 @@
 ---
 
 **INFORMATION IMPORTANTE** : Ce repository est un mirroir du repository privé [Braxoia/PrototypeOfGoogleMaps](https://github.com/Braxoia/PrototypeOfGoogleMaps). L'historique est volontairement supprimé car il contenait des informations sensibles.  
-Co-Auteurs : [Braxoia](https://github.com/Braxoia) [BLIZERTO](https://github.com/BLIZERTO)
+Co-Auteurs : [Braxoia](https://github.com/Braxoia), [BLIZERTO](https://github.com/BLIZERTO)
 
 ---
 
@@ -17,7 +17,7 @@ Créé avec le framework React et la librairie react-leaflet.
 
 ## Screenshots & demo
 
-**Demo** : https://logantann.github.io/pweb-pj2/
+**Demo** : https://logantann.github.io/PWEB-PJ2/
 
 Miniatures affichées : cliquer sur les images pour les voir en taille réelle.
 
