@@ -2,6 +2,13 @@
 
 *Google Maps pour les vélos / Projet de Prog Web Client (Semestre 4, période C)*
 
+---
+
+**INFORMATION IMPORTANTE** : Ce repository est un mirroir du repository privé [Braxoia/PrototypeOfGoogleMaps](https://github.com/Braxoia/PrototypeOfGoogleMaps). L'historique est volontairement supprimé car il contenait des informations sensibles.  
+Co-Auteurs : [Braxoia](https://github.com/Braxoia) [BLIZERTO](https://github.com/BLIZERTO)
+
+---
+
 Projet semi libre consistant à réaliser une carte interactive affichant les pistes cyclables parisiennes selon leur type (pistes, bandes cyclables à sens inverse, etc.)
 
 Objectif : effectuer des pages dynamiques via des requêtes AJAX (authentification, affichage OpenData) et l'usage d'une librairie.

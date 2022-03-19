@@ -1,8 +1,7 @@
 {
-  "name": "pweb-pj2",
+  "name": "PWEB-PJ2",
   "version": "1.0.0",
-  "homepage": "https://logantann.github.io/pweb-pj2",
-  "private": true,
+  "homepage": "https://logantann.github.io/PWEB-PJ2",
   "dependencies": {
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
