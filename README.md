@@ -17,6 +17,8 @@ Créé avec le framework React et la librairie react-leaflet.
 
 ## Screenshots & demo
 
+**Rapport de projet** : [Rapport de projet PwebC.pdf](https://raw.githubusercontent.com/LoganTann/PWEB-PJ2/main/Rapport%20de%20projet%20PwebC.pdf)
+
 **Demo** : https://logantann.github.io/PWEB-PJ2/
 
 Miniatures affichées : cliquer sur les images pour les voir en taille réelle.
